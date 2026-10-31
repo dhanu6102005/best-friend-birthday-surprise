@@ -4,6 +4,7 @@
   "private": true,
   "description": "A beautiful, emotional, interactive birthday surprise website for best friend",
   "scripts": {
+    "build": "echo 'Static build ready'",
     "start": "node server.js",
     "dev": "node server.js"
   },

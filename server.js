@@ -18,22 +18,34 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
-  // Normalize url
-  let reqUrl = req.url.split('?')[0];
-  if (reqUrl === '/') reqUrl = '/index.html';
+  let cleanUrl = req.url.split('?')[0];
 
-  const filePath = path.join(__dirname, decodeURIComponent(reqUrl));
+  // Decode URL and strip leading slash
+  let relativePath = decodeURIComponent(cleanUrl).replace(/^\/+/, '');
+  if (!relativePath || relativePath === '') {
+    relativePath = 'index.html';
+  }
+
+  let filePath = path.join(__dirname, relativePath);
 
   // Security check: stay within workspace
-  if (!filePath.startsWith(__dirname)) {
+  if (!filePath.toLowerCase().startsWith(__dirname.toLowerCase())) {
     res.writeHead(403);
     return res.end('Forbidden');
   }
 
+  // Check if file exists
   fs.stat(filePath, (err, stats) => {
+    // If not found or directory, fallback to index.html (SPA routing)
     if (err || !stats.isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      return res.end('File Not Found');
+      // If it looks like a missing asset (has an extension like .jpg or .mp3), 404
+      if (path.extname(filePath)) {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        return res.end('Asset Not Found: ' + cleanUrl);
+      }
+      
+      // Otherwise fallback to index.html
+      filePath = path.join(__dirname, 'index.html');
     }
 
     const ext = path.extname(filePath).toLowerCase();
@@ -45,6 +57,10 @@ const server = http.createServer((req, res) => {
     });
 
     const stream = fs.createReadStream(filePath);
+    stream.on('error', () => {
+      res.writeHead(500);
+      res.end('Server Error');
+    });
     stream.pipe(res);
   });
 });
@@ -54,13 +70,14 @@ function startServer(port = 3000) {
   server.listen(port, () => {
     console.log('\n======================================================');
     console.log(`🎂 Best Friend Birthday Surprise Website is LIVE! ❤️`);
-    console.log(`👉 Open in your browser: http://localhost:${port}`);
+    console.log(`👉 Open: http://localhost:${port}`);
+    console.log(`👉 Or:   http://127.0.0.1:${port}`);
     console.log('======================================================\n');
   });
 
   server.on('error', (err) => {
     if (err.code === 'EADDRINUSE') {
-      console.log(`Port ${port} is currently busy, trying port ${port + 1}...`);
+      console.log(`Port ${port} is busy, trying port ${port + 1}...`);
       startServer(port + 1);
     } else {
       console.error('Server error:', err);
@@ -69,4 +86,3 @@ function startServer(port = 3000) {
 }
 
 startServer(3000);
-
