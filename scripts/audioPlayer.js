@@ -6,10 +6,11 @@
 
 class BirthdayAudioEngine {
   constructor() {
-    this.audioElement = new Audio();
+    const existingAudio = document.getElementById('main-birthday-audio');
+    this.audioElement = existingAudio || new Audio('assets/audio/friendship-song.mp3');
     this.audioElement.loop = true;
     this.isPlaying = false;
-    this.volume = 0.65;
+    this.volume = 0.75;
     this.isMuted = false;
     this.customAudioBlobUrl = null;
 
@@ -27,7 +28,9 @@ class BirthdayAudioEngine {
 
   initAudio() {
     this.defaultAudioUrl = 'assets/audio/friendship-song.mp3';
-    this.audioElement.src = this.defaultAudioUrl;
+    if (!this.audioElement.src || this.audioElement.src === '' || this.audioElement.src.endsWith('/')) {
+      this.audioElement.src = this.defaultAudioUrl;
+    }
     this.audioElement.volume = this.volume;
 
     this.audioElement.addEventListener('loadedmetadata', () => {
@@ -222,16 +225,21 @@ class BirthdayAudioEngine {
       this.isPlaying = true;
       this.updateUIPlayingState(true);
 
-      // If user uploaded a custom audio file or valid source
-      if (this.audioElement.src && this.audioElement.src !== '' && !this.audioElement.src.endsWith('#')) {
-        await this.audioElement.play();
-      } else {
-        // Fall back to built-in soothing Web Audio melody
-        this.startSynthMelody();
+      if (this.audioElement) {
+        if (!this.audioElement.src || this.audioElement.src.endsWith('/')) {
+          this.audioElement.src = 'assets/audio/friendship-song.mp3';
+        }
+        this.audioElement.volume = this.volume;
+        const p = this.audioElement.play();
+        if (p !== undefined) {
+          p.catch(err => {
+            console.warn("Audio play error, falling back to melody:", err);
+            this.startSynthMelody();
+          });
+        }
       }
     } catch (err) {
-      console.warn("Audio autoplay blocked or failed, waiting for user gesture:", err);
-      // Fall back to synth
+      console.warn("Audio playback error:", err);
       this.startSynthMelody();
     }
   }

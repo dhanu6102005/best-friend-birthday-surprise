@@ -4,9 +4,9 @@
  */
 
 const DEFAULT_DATA = {
-  bestieName: "My Dearest Bestie",
-  nickname: "Favorite Human ❤️",
-  birthdayDate: "2026-11-14",
+  bestieName: "My Dearest KEMPA💙💎",
+  nickname: "Favorite Human❤️",
+  birthdayDate: "2026-11-1",
   welcomeHeading: "HEY BESTIE! ❤️",
   welcomeSubheading: "Someone special has a beautiful surprise waiting for you...",
   celebrationTitle: "HAPPY BIRTHDAY MY DEAR BEST FRIEND! 🎂❤️",
@@ -192,23 +192,26 @@ const DEFAULT_DATA = {
 
 class DataStore {
   constructor() {
-    this.STORAGE_KEY = 'birthday_surprise_data_v2';
+    this.STORAGE_KEY = 'birthday_surprise_data_v6_final';
     this.data = this.loadData();
     this.listeners = [];
   }
 
   loadData() {
     try {
+      // Clear legacy storage keys to prevent stale caches
+      localStorage.removeItem('birthday_surprise_data_v1');
+      localStorage.removeItem('birthday_surprise_data_v2');
+
       const stored = localStorage.getItem(this.STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        // Deep merge with defaults to avoid missing keys
+        const validUserPhotos = (parsed.photos && parsed.photos.length && parsed.photos[0].url && parsed.photos[0].url.startsWith('data:')) ? parsed.photos : DEFAULT_DATA.photos;
         return {
           ...DEFAULT_DATA,
           ...parsed,
-          photos: parsed.photos || DEFAULT_DATA.photos,
-          journey: parsed.journey || DEFAULT_DATA.journey,
-          wishes: parsed.wishes || DEFAULT_DATA.wishes,
+          photos: validUserPhotos,
+          journey: DEFAULT_DATA.journey,
           letter: { ...DEFAULT_DATA.letter, ...(parsed.letter || {}) },
           music: { ...DEFAULT_DATA.music, ...(parsed.music || {}) }
         };
