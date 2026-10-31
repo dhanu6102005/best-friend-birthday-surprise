@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Best friend! 💙💎 A Special Surprise For You</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via Official CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            handwriting: ['"Dancing Script"', 'cursive'],
+            letter: ['"Caveat"', '"Dancing Script"', 'cursive'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            romantic: {
+              50: '#fff0f5',
+              100: '#ffe4ed',
+              200: '#ffc8dd',
+              300: '#ffafcc',
+              400: '#ff85a2',
+              500: '#f72585',
+              600: '#b5179e',
+              700: '#7209b7',
+              800: '#560bad',
+              900: '#3a0ca3',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+
+<body class="text-pink-50 selection:bg-pink-500 selection:text-white relative min-h-screen">
+
+  <!-- =========================================================================
+       1. WELCOME SURPRISE SCREEN
+       ========================================================================= -->
+  <section id="section-welcome" class="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden text-center z-10">
+    <div class="max-w-3xl mx-auto space-y-8">
+      
+      <!-- Badges & Greeting -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-pink-400/30 text-xs font-semibold tracking-widest uppercase text-pink-300 shadow-lg animate-float-gentle">
+        <span>✨ A Very Special Day Has Arrived ✨</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 id="welcome-heading" class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-serif text-white tracking-tight leading-tight text-glow-pink">
+        HEY BESTIE! ❤️
+      </h1>
+
+      <!-- Subheading -->
+      <p id="welcome-subheading" class="text-lg sm:text-2xl text-pink-200/90 max-w-xl mx-auto font-light leading-relaxed">
+        Someone special has a beautiful surprise waiting for you...
+      </p>
+
+      <!-- 3D Animated Gift Box -->
+      <div class="py-6">
+        <div id="welcome-gift-box" class="gift-box-wrapper animate-gift-wobble" title="Click to open your surprise!">
+          <div class="gift-box-lid">
+            <div class="gift-bow">
+              <div class="gift-bow-left"></div>
+              <div class="gift-bow-right"></div>
+              <div class="gift-bow-center"></div>
+            </div>
+          </div>
+          <div class="gift-box-base"></div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="space-y-4">
+        <p class="text-sm sm:text-base font-medium text-pink-200 tracking-wide uppercase">
+          Are You Ready For Your Surprise?
+        </p>
+
+        <button id="btn-open-welcome-surprise" class="btn-glow-primary px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg tracking-wide uppercase flex items-center justify-center gap-3 mx-auto shadow-2xl transition-all">
+          <span>OPEN YOUR SURPRISE 🎁</span>
+          <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. BIRTHDAY CELEBRATION HERO & CAKE
+       ========================================================================= -->
+  <section id="section-celebration" class="min-h-screen flex flex-col items-center justify-center px-4 py-20 relative text-center z-10 border-t border-pink-500/10">
+    <div class="max-w-4xl mx-auto space-y-10">
+
+      <!-- Celebration Heading -->
+      <div class="space-y-3">
+        <div class="inline-block px-4 py-1 rounded-full bg-pink-500/20 border border-pink-500/30 text-xs font-bold uppercase tracking-widest text-pink-300 mb-2">
+          🎉 Let the celebration begin! 🎉
+        </div>
+        <h2 id="celebration-title" class="text-3xl sm:text-5xl md:text-6xl font-extrabold font-serif text-white tracking-tight leading-tight text-glow-pink">
+          HAPPY BIRTHDAY MY DEAR BEST FRIEND! 🎂💙
+        </h2>
+      </div>
+
+      <!-- Interactive 3D Birthday Cake -->
+      <div class="py-4">
+        <div class="cake-container">
+          <!-- Blowable Candles -->
+          <div id="cake-candles-group" class="candles-group" title="Click candles to make a wish & blow them out!">
+            <div class="candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame flame-flicker"></div>
+            </div>
+            <div class="candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame flame-flicker" style="animation-delay: 0.2s;"></div>
+            </div>
+            <div class="candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame flame-flicker" style="animation-delay: 0.4s;"></div>
+            </div>
+          </div>
+
+          <!-- Top Tier -->
+          <div class="cake-tier-top">
+            <div class="cake-frosting-top"></div>
+          </div>
+
+          <!-- Bottom Tier -->
+          <div class="cake-tier-bottom">
+            <div class="cake-frosting-bottom"></div>
+          </div>
+
+          <!-- Cake Plate -->
+          <div class="cake-plate"></div>
+        </div>
+
+        <p id="cake-wish-prompt" class="text-xs sm:text-sm font-medium text-pink-300 mt-4 tracking-wide cursor-pointer hover:underline">
+          Click candles to make a wish & blow them out! 🕯️✨
+        </p>
+      </div>
+
+      <!-- Emotional Birthday Message -->
+      <div class="p-6 sm:p-8 rounded-3xl glass-panel-glow max-w-2xl mx-auto shadow-2xl relative text-center">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-[11px] font-bold uppercase tracking-widest text-white shadow-md">
+          A Special Birthday Memory
+        </div>
+
+        <!-- Spotlight Photo -->
+        <div class="my-3 max-w-xs mx-auto rounded-2xl overflow-hidden aspect-[4/5] bg-black/40 border-2 border-pink-400/40 shadow-xl group">
+          <img src="assets/images/friendship-5.jpg" alt="Special Memory with Bestie" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer" onclick="window.lightbox && window.lightbox.open([{url: 'assets/images/friendship-5.jpg', caption: 'Dressed up & celebrating life together.', story: 'Looking stunning in traditional festive vibes, creating memories we will cherish for a lifetime.', date: 'Special Celebrations'}], 0)" title="Click to view full screen"/>
+        </div>
+
+        <p id="celebration-message" class="text-base sm:text-lg text-pink-100 font-serif leading-relaxed italic mt-2">
+          "Today is not just another day. Today is the birthday of one of the most special people in my life. I am so lucky to have you as my best friend. May your life always be filled with happiness, love, success and beautiful memories."
+        </p>
+      </div>
+
+      <!-- Celebration Button -->
+      <div>
+        <button id="btn-lets-celebrate" class="btn-glow-gold px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg tracking-wide uppercase flex items-center justify-center gap-3 mx-auto shadow-2xl transition-all">
+          <span>LET'S CELEBRATE 🎉</span>
+          <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. PHOTO GALLERY – OUR BEAUTIFUL MEMORIES
+       ========================================================================= -->
+  <section id="section-gallery" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
+    <div class="text-center space-y-4 mb-14">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-pink-400/30 text-xs font-semibold tracking-widest uppercase text-pink-300">
+        📸 Treasured Moments
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-serif text-white text-glow-pink">
+        OUR BEAUTIFUL MEMORIES ❤️
+      </h2>
+      <p class="text-sm sm:text-base text-pink-200/80 max-w-xl mx-auto font-light">
+        "Every picture has a beautiful story... Memories that I will never forget."
+      </p>
+
+      <!-- Quick Action: Upload / Customize -->
+      <div class="pt-2">
+        <button id="gallery-quick-upload-btn" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-pink-500/20 hover:bg-pink-500/40 text-pink-200 text-xs font-semibold tracking-wide border border-pink-400/30 backdrop-blur-md transition shadow">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+          <span>Upload & Customize Photos</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Responsive Photo Grid -->
+    <div id="photos-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Photos rendered dynamically via app.js -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. OUR FRIENDSHIP JOURNEY (TIMELINE)
+       ========================================================================= -->
+  <section id="section-journey" class="py-24 px-4 sm:px-6 max-w-5xl mx-auto relative z-10 border-t border-pink-500/10">
+    <div class="text-center space-y-4 mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-pink-400/30 text-xs font-semibold tracking-widest uppercase text-pink-300">
+        🫂 Our Story
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-serif text-white text-glow-pink">
+        OUR JOURNEY OF FRIENDSHIP ❤️
+      </h2>
+      <p class="text-sm sm:text-base text-pink-200/80 max-w-xl mx-auto font-light">
+        From strangers to inseparable souls: here are the precious milestones we built together.
+      </p>
+    </div>
+
+    <!-- Vertical Timeline with Glowing Spine -->
+    <div class="relative">
+      <div class="absolute left-4 md:left-1/2 top-4 bottom-4 w-1 timeline-glow-line -translate-x-1/2 rounded-full"></div>
+      <div id="journey-timeline-container" class="space-y-6">
+        <!-- Milestones rendered dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. SPECIAL BIRTHDAY LETTER (DIGITAL ENVELOPE)
+       ========================================================================= -->
+  <section id="section-letter" class="py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10 border-t border-pink-500/10">
+    <div class="text-center space-y-4 mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-pink-400/30 text-xs font-semibold tracking-widest uppercase text-pink-300">
+        💌 Deep From The Heart
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-serif text-white text-glow-pink">
+        A SMALL LETTER FROM MY HEART ❤️
+      </h2>
+      <p class="text-sm sm:text-base text-pink-200/80 max-w-md mx-auto font-light">
+        A handwritten letter sealed with infinite love and honesty, just for you.
+      </p>
+    </div>
+
+    <!-- Envelope Container -->
+    <div class="py-4 text-center">
+      <div class="envelope-container mb-6">
+        <div id="digital-envelope" class="envelope cursor-pointer" title="Click to unseal letter!">
+          <div class="envelope-flap"></div>
+          <div class="envelope-seal">💌</div>
+        </div>
+      </div>
+
+      <button id="btn-open-letter" class="btn-glow-primary px-7 py-3 rounded-full text-white font-bold text-sm tracking-wide uppercase inline-flex items-center gap-2 shadow-xl">
+        <span>OPEN MY LETTER 💌</span>
+      </button>
+    </div>
+
+    <!-- Unfolded Parchment Letter (Reveals on Click) -->
+    <div id="letter-parchment-container" class="hidden mt-10 p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#fffbf2] to-[#f9f1e1] text-[#2c1338] shadow-2xl border-4 border-[#e9d5b5] relative overflow-hidden">
+      <!-- Decorative Corner Accents -->
+      <div class="absolute top-3 left-4 text-2xl select-none opacity-40">❦</div>
+      <div class="absolute top-3 right-4 text-2xl select-none opacity-40">❦</div>
+      <div class="absolute bottom-3 left-4 text-2xl select-none opacity-40">❦</div>
+      <div class="absolute bottom-3 right-4 text-2xl select-none opacity-40">❦</div>
+
+      <div class="max-w-2xl mx-auto">
+        <!-- Letter Greeting -->
+        <h3 id="letter-greeting-text" class="text-2xl sm:text-3xl font-bold font-handwriting text-[#5a1870] mb-6">
+          Dear Bestie,
+        </h3>
+
+        <!-- Letter Body -->
+        <div id="letter-body-container" class="text-lg sm:text-2xl font-letter leading-relaxed space-y-4 text-[#3d1847]">
+          <!-- Paragraphs populated dynamically -->
+        </div>
+
+        <!-- Letter Signoff -->
+        <div class="mt-8 pt-4 border-t border-[#d8c3a5] text-right font-handwriting text-xl sm:text-2xl text-[#5a1870]">
+          <p id="letter-signoff-text">With lots of love,<br>Your Best Friend ❤️</p>
+        </div>
+
+        <!-- Quick Edit Shortcut -->
+        <div class="mt-8 pt-4 flex justify-center">
+          <button id="btn-quick-edit-letter" class="text-xs text-[#7209b7] hover:underline font-sans font-semibold">
+            ✏️ Personalize / Edit This Letter
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. BIRTHDAY WISHES SECTION
+       ========================================================================= -->
+  <section id="section-wishes" class="py-24 px-4 sm:px-6 max-w-6xl mx-auto relative z-10 border-t border-pink-500/10">
+    <div class="text-center space-y-4 mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-pink-400/30 text-xs font-semibold tracking-widest uppercase text-pink-300">
+        🌹 Heartfelt Blessings
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-serif text-white text-glow-pink">
+        MY WISHES FOR YOU ❤️
+      </h2>
+      <p class="text-sm sm:text-base text-pink-200/80 max-w-xl mx-auto font-light">
+        Every wish holds a prayer for your eternal joy, peace, and triumph in life.
+      </p>
+    </div>
+
+    <!-- Wishes Cards Grid -->
+    <div id="wishes-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Wishes rendered dynamically via app.js -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. SURPRISE MESSAGE SECTION (HIDDEN CHEST)
+       ========================================================================= -->
+  <section id="section-surprise" class="py-24 px-4 sm:px-6 max-w-4xl mx-auto relative z-10 border-t border-pink-500/10 text-center">
+    <div class="space-y-4 mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-pink-400/30 text-xs font-semibold tracking-widest uppercase text-pink-300">
+        🎁 Secret Vault
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-serif text-white text-glow-pink">
+        ONE LAST SURPRISE FOR YOU! 🎁
+      </h2>
+      <p class="text-sm sm:text-base text-pink-200/80 max-w-md mx-auto font-light">
+        A final locked treasure waiting to be opened by only you.
+      </p>
+    </div>
+
+    <!-- Closed Mystery Gift Box -->
+    <div class="py-4">
+      <div id="mystery-gift-box" class="gift-box-wrapper animate-float-slow cursor-pointer" title="Click to unlock!">
+        <div class="gift-box-lid">
+          <div class="gift-bow">
+            <div class="gift-bow-left"></div>
+            <div class="gift-bow-right"></div>
+            <div class="gift-bow-center"></div>
+          </div>
+        </div>
+        <div class="gift-box-base"></div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <button id="btn-unlock-surprise" class="btn-glow-primary px-8 py-3.5 rounded-full text-white font-bold text-base tracking-wide uppercase inline-flex items-center gap-2 shadow-2xl">
+        <span>UNLOCK YOUR SURPRISE ❤️</span>
+      </button>
+    </div>
+
+    <!-- Revealed Emotional Message Card -->
+    <div id="surprise-revealed-card" class="hidden mt-10 p-8 sm:p-10 rounded-3xl glass-panel-glow border-2 border-pink-400/40 max-w-2xl mx-auto shadow-2xl relative text-left">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">💖</span>
+        <h3 class="text-xl font-bold font-serif text-white">Forever In My Heart</h3>
+      </div>
+      <div class="mb-5 rounded-2xl overflow-hidden aspect-[16/10] bg-black/40 border border-pink-400/30 shadow-xl group">
+        <img src="assets/images/friendship-1.jpg" alt="Our Beautiful Bond" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 cursor-pointer" onclick="window.lightbox && window.lightbox.open([{url: 'assets/images/friendship-1.jpg', caption: 'Every picture has a beautiful story.', story: 'Sharing smiles, laughs, and making ordinary days feel truly extraordinary together.', date: 'Our Sweet Memory'}], 0)" title="Click to view full screen"/>
+      </div>
+      <p id="surprise-message-text" class="text-base sm:text-lg text-pink-100 font-serif leading-relaxed italic">
+        "Thank you for being a part of my life. No matter how far life takes us, you will always have a special place in my heart. I may not express it every day, but your friendship means a lot to me. Stay happy, stay blessed and keep smiling forever. ❤️🫂"
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. FINAL CELEBRATION FINALE
+       ========================================================================= -->
+  <section id="section-finale" class="py-28 px-4 sm:px-6 relative z-10 text-center border-t border-pink-500/10">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <div class="text-5xl animate-bounce select-none">🎂❤️✨</div>
+
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold font-serif text-white tracking-tight leading-tight text-glow-pink">
+        HAPPY BIRTHDAY ONCE AGAIN, MY DEAR BEST FRIEND! 🎂💙
+      </h2>
+
+      <p class="text-xl sm:text-2xl font-serif text-pink-200">
+        LOTS OF LOVE, HAPPINESS AND HUGS FOR YOU! 🫂
+      </p>
+
+      <p class="text-sm sm:text-base font-bold tracking-widest uppercase text-pink-300">
+        FRIENDS TODAY, TOMORROW AND FOREVER.
+      </p>
+
+      <!-- Interactive Finale Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <button id="btn-launch-fireworks" class="btn-glow-gold px-7 py-3 rounded-full text-white font-bold text-sm tracking-wide uppercase inline-flex items-center gap-2 shadow-xl">
+          <span>Launch Fireworks 🎆</span>
+        </button>
+
+        <button id="btn-send-virtual-hug" class="btn-glow-primary px-7 py-3 rounded-full text-white font-bold text-sm tracking-wide uppercase inline-flex items-center gap-2 shadow-xl">
+          <span>Send Warm Hug 🫂</span>
+        </button>
+      </div>
+
+      <!-- Effects Toggles & Bottom Credits -->
+      <div class="pt-16 border-t border-pink-500/10 space-y-4">
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+          <span class="text-pink-300/60 mr-2">Visual Atmosphere:</span>
+          <button id="toggle-floating-hearts" class="effect-toggle-pill active px-3 py-1.5 rounded-full border border-pink-500/30 text-pink-200">
+            Floating Hearts 💕
+          </button>
+          <button id="toggle-falling-petals" class="effect-toggle-pill active px-3 py-1.5 rounded-full border border-pink-500/30 text-pink-200">
+            Rose Petals 🌸
+          </button>
+        </div>
+
+        <p class="text-xs sm:text-sm text-pink-300/70 font-handwriting text-lg sm:text-xl">
+          Made with endless love, just for you ❤️
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. FIXED FLOATING MUSIC DOCK (ALWAYS ACCESSIBLE)
+       ========================================================================= -->
+  <aside id="music-floating-dock" class="fixed bottom-4 left-4 z-40 max-w-[340px] sm:max-w-[380px] p-3 rounded-3xl bg-[#1f0a2d]/90 backdrop-blur-xl border border-pink-500/30 shadow-2xl flex items-center gap-3 text-white">
+    <!-- Spinning Vinyl Disc -->
+    <div id="music-vinyl-disc" class="relative w-12 h-12 rounded-full bg-gradient-to-tr from-gray-950 via-gray-800 to-gray-900 border-2 border-pink-400/40 flex items-center justify-center shadow-lg shrink-0 overflow-hidden cursor-pointer">
+      <div class="w-4 h-4 rounded-full bg-pink-500 border-2 border-white"></div>
+    </div>
+
+    <!-- Song Info & Controls -->
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between gap-1 mb-1">
+        <p id="music-song-title" class="text-xs font-semibold text-pink-100 truncate font-sans">
+          Kadhaippoma - Our Friendship Anthem 🎶❤️
+        </p>
+        
+        <!-- Equalizer Sound Wave -->
+        <div class="flex items-end gap-0.5 h-4 shrink-0 px-1">
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+          <div class="eq-bar"></div>
+        </div>
+      </div>
+
+      <!-- Scrubber Progress Bar -->
+      <div id="music-progress-container" class="w-full h-1.5 bg-white/10 rounded-full cursor-pointer overflow-hidden mb-1">
+        <div id="music-progress-bar" class="h-full bg-gradient-to-r from-pink-500 to-purple-500 w-0 transition-all"></div>
+      </div>
+
+      <!-- Timer & Actions -->
+      <div class="flex items-center justify-between text-[10px] text-pink-300/70">
+        <span id="music-time-current">00:00</span>
+        <div class="flex items-center gap-2">
+          <!-- Volume control -->
+          <input id="music-volume-slider" type="range" min="0" max="1" step="0.05" value="0.65" class="w-12 h-1 accent-pink-500 bg-white/20 rounded-lg cursor-pointer" title="Adjust volume">
+          <button id="music-mute-btn" class="hover:text-white" title="Mute/Unmute">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+          </button>
+          <!-- Upload custom song -->
+          <input id="music-upload-input" type="file" accept="audio/*" class="hidden">
+          <button id="music-upload-trigger" class="hover:text-white font-medium" title="Upload your own song">
+            🎵 Upload
+          </button>
+        </div>
+        <span id="music-time-total">01:00</span>
+      </div>
+    </div>
+
+    <!-- Play/Pause Button -->
+    <button id="music-play-btn" class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 flex items-center justify-center shrink-0 shadow-lg shadow-pink-500/30 transition-transform active:scale-95" title="Play/Pause">
+      <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- =========================================================================
+       SCRIPTS ARCHITECTURE
+       ========================================================================= -->
+  <script src="scripts/confetti.js"></script>
+  <script src="scripts/particles.js"></script>
+  <script src="scripts/dataStore.js"></script>
+  <script src="scripts/audioPlayer.js"></script>
+  <script src="scripts/lightbox.js"></script>
+  <script src="scripts/customizer.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
+

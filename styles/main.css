@@ -1,0 +1,100 @@
+/* =========================================================================
+   MAIN STYLESHEET - BEST FRIEND BIRTHDAY SURPRISE
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-primary: #ff4d6d;
+  --color-secondary: #c77dff;
+  --color-accent: #ffd166;
+  --color-bg-dark: #0d0414;
+  --color-bg-card: rgba(255, 255, 255, 0.05);
+  --font-display: 'Playfair Display', serif;
+  --font-handwriting: 'Dancing Script', cursive;
+  --font-letter: 'Caveat', cursive;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: #fff0f5;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #2b0b3f 0%, #170724 50%, #0a0311 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-display);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.font-letter {
+  font-family: var(--font-letter);
+}
+
+/* Glowing Buttons */
+.btn-glow-primary {
+  position: relative;
+  background: linear-gradient(135deg, #ff4d6d, #b5179e);
+  box-shadow: 0 4px 25px rgba(247, 37, 133, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-glow-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(247, 37, 133, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-glow-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-glow-gold {
+  position: relative;
+  background: linear-gradient(135deg, #ffb703, #fb8500);
+  box-shadow: 0 4px 25px rgba(251, 133, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-glow-gold:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(251, 133, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Floating Hearts & Petals toggles in footer */
+.effect-toggle-pill {
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.effect-toggle-pill.active {
+  background: rgba(255, 77, 109, 0.3);
+  border-color: rgba(255, 77, 109, 0.8);
+  color: #fff;
+}
+
+/* Timeline Glowing Connector Line */
+.timeline-glow-line {
+  background: linear-gradient(to bottom, #ff4d6d, #c77dff, #ffd166, #ff4d6d);
+  box-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+}
+

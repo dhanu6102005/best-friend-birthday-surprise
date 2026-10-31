@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "best-friend-birthday-surprise",
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+

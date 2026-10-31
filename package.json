@@ -1,0 +1,13 @@
+{
+  "name": "best-friend-birthday-surprise",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A beautiful, emotional, interactive birthday surprise website for best friend",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["birthday", "best-friend", "surprise", "gift", "romantic", "interactive"],
+  "author": "",
+  "license": "MIT"
+}

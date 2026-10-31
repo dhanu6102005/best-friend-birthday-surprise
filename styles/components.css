@@ -1,0 +1,377 @@
+/* =========================================================================
+   SPECIAL COMPONENT STYLES (3D Gift Box, Birthday Cake, Digital Letter)
+   ========================================================================= */
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-glow {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 117, 143, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(247, 37, 133, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-panel-glow:hover {
+  border-color: rgba(255, 117, 143, 0.45);
+  box-shadow: 0 16px 50px 0 rgba(247, 37, 133, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Glowing Typography */
+.text-glow-pink {
+  text-shadow: 0 0 15px rgba(255, 77, 109, 0.7), 0 0 30px rgba(247, 37, 133, 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 15px rgba(255, 209, 102, 0.7), 0 0 30px rgba(251, 133, 0, 0.4);
+}
+
+/* ---------------------------------------------------------
+   INTERACTIVE 3D GIFT BOX
+   --------------------------------------------------------- */
+.gift-box-wrapper {
+  perspective: 1000px;
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gift-box-wrapper:hover {
+  transform: scale(1.06);
+}
+
+.gift-box-base {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: 140px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff4d6d, #b5179e);
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(247, 37, 133, 0.5), inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.gift-box-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 100%;
+  background: linear-gradient(to right, #ffd166, #ffb703, #ffd166);
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.6);
+}
+
+.gift-box-base::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 28px;
+  background: linear-gradient(to bottom, #ffd166, #ffb703, #ffd166);
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.6);
+}
+
+.gift-box-lid {
+  position: absolute;
+  top: 25px;
+  left: 7px;
+  width: 156px;
+  height: 38px;
+  background: linear-gradient(135deg, #ff758f, #f72585);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease;
+}
+
+.gift-box-lid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 100%;
+  background: linear-gradient(to right, #ffe49e, #ffd166);
+}
+
+/* 3D Bow on Top of Gift Box */
+.gift-bow {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 25px;
+  z-index: 3;
+}
+
+.gift-bow-left,
+.gift-bow-right {
+  position: absolute;
+  top: 0;
+  width: 26px;
+  height: 22px;
+  border: 5px solid #ffd166;
+  border-radius: 50% 50% 0 50%;
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.7);
+}
+
+.gift-bow-left {
+  left: 2px;
+  transform: rotate(-35deg);
+}
+
+.gift-bow-right {
+  right: 2px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(35deg);
+}
+
+.gift-bow-center {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #ffb703;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffd166;
+}
+
+/* Open Gift Animation Triggered */
+.gift-box-wrapper.opened .gift-box-lid {
+  transform: translateY(-90px) rotate(-35deg) scale(0.85);
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------
+   INTERACTIVE BIRTHDAY CAKE & BLOWABLE CANDLES
+   --------------------------------------------------------- */
+.cake-container {
+  position: relative;
+  width: 240px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.cake-plate {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 18px;
+  background: linear-gradient(to bottom, #f0f0f0, #c8c8c8);
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cake-tier-bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 65px;
+  background: linear-gradient(135deg, #ffc8dd, #ffafcc);
+  border-radius: 14px 14px 8px 8px;
+  box-shadow: inset 0 -6px 12px rgba(247, 37, 133, 0.25), 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cake-frosting-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cake-tier-top {
+  position: absolute;
+  bottom: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 55px;
+  background: linear-gradient(135deg, #e0aaff, #c77dff);
+  border-radius: 12px 12px 6px 6px;
+  box-shadow: inset 0 -4px 10px rgba(114, 9, 183, 0.25), 0 6px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cake-frosting-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Candles */
+.candles-group {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.candle {
+  position: relative;
+  width: 10px;
+  height: 38px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffd166,
+    #ffd166 4px,
+    #ff4d6d 4px,
+    #ff4d6d 8px
+  );
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.candle-wick {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  background: #333;
+}
+
+.candle-flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(ellipse at bottom, #ffffff 10%, #ffd166 40%, #ff5d8f 80%);
+  border-radius: 50% 50% 20% 20%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.candle.blown .candle-flame {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+
+/* ---------------------------------------------------------
+   DIGITAL ENVELOPE & PARCHMENT LETTER
+   --------------------------------------------------------- */
+.envelope-container {
+  perspective: 1000px;
+  width: 320px;
+  height: 220px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2d0b38, #481159);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 117, 143, 0.3);
+  overflow: visible;
+  transition: transform 0.4s ease;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 110px solid #5a1870;
+  transform-origin: top center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle, #ff4d6d, #b5179e);
+  border-radius: 50%;
+  border: 2px solid #ffd166;
+  box-shadow: 0 4px 15px rgba(247, 37, 133, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.envelope-seal:hover {
+  transform: translateX(-50%) scale(1.15);
+}
+
+.envelope.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.opened .envelope-seal {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+
+/* ---------------------------------------------------------
+   CUSTOM SCROLLBAR
+   --------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 4, 29, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 117, 143, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 117, 143, 0.7);
+}
+
