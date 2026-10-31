@@ -44,13 +44,687 @@
     }
   </script>
 
-  <!-- Custom Stylesheets -->
+  <!-- Embedded Critical Stylesheet -->
+  <style>
+﻿/* =========================================================================
+   MAIN STYLESHEET - BEST FRIEND BIRTHDAY SURPRISE
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-primary: #ff4d6d;
+  --color-secondary: #c77dff;
+  --color-accent: #ffd166;
+  --color-bg-dark: #0d0414;
+  --color-bg-card: rgba(255, 255, 255, 0.05);
+  --font-display: 'Playfair Display', serif;
+  --font-handwriting: 'Dancing Script', cursive;
+  --font-letter: 'Caveat', cursive;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: #fff0f5;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #2b0b3f 0%, #170724 50%, #0a0311 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-display);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.font-letter {
+  font-family: var(--font-letter);
+}
+
+/* Glowing Buttons */
+.btn-glow-primary {
+  position: relative;
+  background: linear-gradient(135deg, #ff4d6d, #b5179e);
+  box-shadow: 0 4px 25px rgba(247, 37, 133, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-glow-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(247, 37, 133, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn-glow-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-glow-gold {
+  position: relative;
+  background: linear-gradient(135deg, #ffb703, #fb8500);
+  box-shadow: 0 4px 25px rgba(251, 133, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-glow-gold:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(251, 133, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Floating Hearts & Petals toggles in footer */
+.effect-toggle-pill {
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.effect-toggle-pill.active {
+  background: rgba(255, 77, 109, 0.3);
+  border-color: rgba(255, 77, 109, 0.8);
+  color: #fff;
+}
+
+/* Timeline Glowing Connector Line */
+.timeline-glow-line {
+  background: linear-gradient(to bottom, #ff4d6d, #c77dff, #ffd166, #ff4d6d);
+  box-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+}
+
+/* =========================================================================
+   ANIMATIONS & KEYFRAMES
+   ========================================================================= */
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 15px rgba(247, 37, 133, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 35px rgba(247, 37, 133, 0.8));
+  }
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px #ffb703) drop-shadow(0 0 16px #fb8500);
+  }
+  25% {
+    transform: scale(1.08, 0.92) rotate(2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.95, 1.05) rotate(-2deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 12px #ffd166) drop-shadow(0 0 24px #ff5d8f);
+  }
+  75% {
+    transform: scale(1.04, 0.96) rotate(1deg);
+    opacity: 1;
+  }
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-60px) scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes giftWobble {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(-5deg) scale(1.04);
+  }
+  40% {
+    transform: rotate(5deg) scale(1.04);
+  }
+  60% {
+    transform: rotate(-3deg) scale(1.02);
+  }
+  80% {
+    transform: rotate(3deg) scale(1.02);
+  }
+}
+
+@keyframes giftOpenLid {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-90px) rotate(-25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-160px) rotate(-45deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes envelopeFlapOpen {
+  0% {
+    transform: rotateX(0deg);
+    z-index: 5;
+  }
+  100% {
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
+}
+
+@keyframes letterSlideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes equalizerWave {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 18px;
+  }
+}
+
+/* Animation utility classes */
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 3.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.animate-gift-wobble {
+  animation: giftWobble 2.2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.flame-flicker {
+  animation: flameFlicker 0.8s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.smoke-puff {
+  animation: smokeRise 1.4s ease-out forwards;
+}
+
+/* Soundwave Equalizer */
+.eq-bar {
+  width: 3px;
+  height: 4px;
+  background: linear-gradient(to top, #ff758f, #ffb3c1);
+  border-radius: 9999px;
+  transition: height 0.2s ease;
+}
+
+.eq-bar.active:nth-child(1) {
+  animation: equalizerWave 0.8s ease-in-out infinite;
+}
+.eq-bar.active:nth-child(2) {
+  animation: equalizerWave 1.1s ease-in-out 0.2s infinite;
+}
+.eq-bar.active:nth-child(3) {
+  animation: equalizerWave 0.7s ease-in-out 0.4s infinite;
+}
+.eq-bar.active:nth-child(4) {
+  animation: equalizerWave 1.3s ease-in-out 0.1s infinite;
+}
+
+/* =========================================================================
+   SPECIAL COMPONENT STYLES (3D Gift Box, Birthday Cake, Digital Letter)
+   ========================================================================= */
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-glow {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 117, 143, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(247, 37, 133, 0.2), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-panel-glow:hover {
+  border-color: rgba(255, 117, 143, 0.45);
+  box-shadow: 0 16px 50px 0 rgba(247, 37, 133, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Glowing Typography */
+.text-glow-pink {
+  text-shadow: 0 0 15px rgba(255, 77, 109, 0.7), 0 0 30px rgba(247, 37, 133, 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 15px rgba(255, 209, 102, 0.7), 0 0 30px rgba(251, 133, 0, 0.4);
+}
+
+/* ---------------------------------------------------------
+   INTERACTIVE 3D GIFT BOX
+   --------------------------------------------------------- */
+.gift-box-wrapper {
+  perspective: 1000px;
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gift-box-wrapper:hover {
+  transform: scale(1.06);
+}
+
+.gift-box-base {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: 140px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff4d6d, #b5179e);
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(247, 37, 133, 0.5), inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.gift-box-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 100%;
+  background: linear-gradient(to right, #ffd166, #ffb703, #ffd166);
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.6);
+}
+
+.gift-box-base::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 28px;
+  background: linear-gradient(to bottom, #ffd166, #ffb703, #ffd166);
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.6);
+}
+
+.gift-box-lid {
+  position: absolute;
+  top: 25px;
+  left: 7px;
+  width: 156px;
+  height: 38px;
+  background: linear-gradient(135deg, #ff758f, #f72585);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease;
+}
+
+.gift-box-lid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 100%;
+  background: linear-gradient(to right, #ffe49e, #ffd166);
+}
+
+/* 3D Bow on Top of Gift Box */
+.gift-bow {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 25px;
+  z-index: 3;
+}
+
+.gift-bow-left,
+.gift-bow-right {
+  position: absolute;
+  top: 0;
+  width: 26px;
+  height: 22px;
+  border: 5px solid #ffd166;
+  border-radius: 50% 50% 0 50%;
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.7);
+}
+
+.gift-bow-left {
+  left: 2px;
+  transform: rotate(-35deg);
+}
+
+.gift-bow-right {
+  right: 2px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(35deg);
+}
+
+.gift-bow-center {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #ffb703;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffd166;
+}
+
+/* Open Gift Animation Triggered */
+.gift-box-wrapper.opened .gift-box-lid {
+  transform: translateY(-90px) rotate(-35deg) scale(0.85);
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------
+   INTERACTIVE BIRTHDAY CAKE & BLOWABLE CANDLES
+   --------------------------------------------------------- */
+.cake-container {
+  position: relative;
+  width: 240px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.cake-plate {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 18px;
+  background: linear-gradient(to bottom, #f0f0f0, #c8c8c8);
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cake-tier-bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 65px;
+  background: linear-gradient(135deg, #ffc8dd, #ffafcc);
+  border-radius: 14px 14px 8px 8px;
+  box-shadow: inset 0 -6px 12px rgba(247, 37, 133, 0.25), 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cake-frosting-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cake-tier-top {
+  position: absolute;
+  bottom: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 55px;
+  background: linear-gradient(135deg, #e0aaff, #c77dff);
+  border-radius: 12px 12px 6px 6px;
+  box-shadow: inset 0 -4px 10px rgba(114, 9, 183, 0.25), 0 6px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cake-frosting-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Candles */
+.candles-group {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.candle {
+  position: relative;
+  width: 10px;
+  height: 38px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffd166,
+    #ffd166 4px,
+    #ff4d6d 4px,
+    #ff4d6d 8px
+  );
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.candle-wick {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  background: #333;
+}
+
+.candle-flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(ellipse at bottom, #ffffff 10%, #ffd166 40%, #ff5d8f 80%);
+  border-radius: 50% 50% 20% 20%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.candle.blown .candle-flame {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+
+/* ---------------------------------------------------------
+   DIGITAL ENVELOPE & PARCHMENT LETTER
+   --------------------------------------------------------- */
+.envelope-container {
+  perspective: 1000px;
+  width: 320px;
+  height: 220px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2d0b38, #481159);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 117, 143, 0.3);
+  overflow: visible;
+  transition: transform 0.4s ease;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 110px solid #5a1870;
+  transform-origin: top center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle, #ff4d6d, #b5179e);
+  border-radius: 50%;
+  border: 2px solid #ffd166;
+  box-shadow: 0 4px 15px rgba(247, 37, 133, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.envelope-seal:hover {
+  transform: translateX(-50%) scale(1.15);
+}
+
+.envelope.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.opened .envelope-seal {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+
+/* ---------------------------------------------------------
+   CUSTOM SCROLLBAR
+   --------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 4, 29, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 117, 143, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 117, 143, 0.7);
+}
+
+
+  </style>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/animations.css">
   <link rel="stylesheet" href="styles/components.css">
 </head>
 
-<body class="text-pink-50 selection:bg-pink-500 selection:text-white relative min-h-screen">
+<body class="text-pink-50 selection:bg-pink-500 selection:text-white relative min-h-screen" style="background: radial-gradient(circle at 50% 20%, #2b0b3f 0%, #170724 50%, #0a0311 100%) !important; background-color: #0d0414 !important; color: #fff0f5 !important; min-height: 100vh;">
 
   <!-- =========================================================================
        1. WELCOME SURPRISE SCREEN
@@ -64,12 +738,12 @@
       </div>
 
       <!-- Main Heading -->
-      <h1 id="welcome-heading" class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-serif text-white tracking-tight leading-tight text-glow-pink">
+      <h1 id="welcome-heading" class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-serif tracking-tight leading-tight" style="color: #ffffff !important; text-shadow: 0 0 25px rgba(255, 77, 109, 0.8), 0 0 40px rgba(247, 37, 133, 0.6) !important;">
         HEY BESTIE! ❤️
       </h1>
 
       <!-- Subheading -->
-      <p id="welcome-subheading" class="text-lg sm:text-2xl text-pink-200/90 max-w-xl mx-auto font-light leading-relaxed">
+      <p id="welcome-subheading" class="text-lg sm:text-2xl max-w-xl mx-auto font-light leading-relaxed" style="color: #ffd8e4 !important;">
         Someone special has a beautiful surprise waiting for you...
       </p>
 
@@ -89,11 +763,11 @@
 
       <!-- Call to Action -->
       <div class="space-y-4">
-        <p class="text-sm sm:text-base font-medium text-pink-200 tracking-wide uppercase">
+        <p class="text-sm sm:text-base font-medium tracking-wide uppercase" style="color: #ffc2d4 !important;">
           Are You Ready For Your Surprise?
         </p>
 
-        <button id="btn-open-welcome-surprise" class="btn-glow-primary px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg tracking-wide uppercase flex items-center justify-center gap-3 mx-auto shadow-2xl transition-all">
+        <button id="btn-open-welcome-surprise" class="btn-glow-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg tracking-wide uppercase flex items-center justify-center gap-3 mx-auto shadow-2xl transition-all" style="background: linear-gradient(135deg, #ff4d6d, #b5179e) !important; color: white !important; box-shadow: 0 4px 25px rgba(247, 37, 133, 0.6) !important;">
           <span>OPEN YOUR SURPRISE 🎁</span>
           <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -176,7 +850,7 @@
 
       <!-- Celebration Button -->
       <div>
-        <button id="btn-lets-celebrate" class="btn-glow-gold px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg tracking-wide uppercase flex items-center justify-center gap-3 mx-auto shadow-2xl transition-all">
+        <button id="btn-lets-celebrate" class="btn-glow-gold px-8 py-4 rounded-full font-bold text-base sm:text-lg tracking-wide uppercase flex items-center justify-center gap-3 mx-auto shadow-2xl transition-all" style="background: linear-gradient(135deg, #ffb703, #fb8500) !important; color: white !important; box-shadow: 0 4px 25px rgba(251, 133, 0, 0.6) !important;">
           <span>LET'S CELEBRATE 🎉</span>
           <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
@@ -269,7 +943,7 @@
         </div>
       </div>
 
-      <button id="btn-open-letter" class="btn-glow-primary px-7 py-3 rounded-full text-white font-bold text-sm tracking-wide uppercase inline-flex items-center gap-2 shadow-xl">
+      <button id="btn-open-letter" class="btn-glow-primary px-7 py-3 rounded-full font-bold text-sm tracking-wide uppercase inline-flex items-center gap-2 shadow-xl" style="background: linear-gradient(135deg, #ff4d6d, #b5179e) !important; color: white !important;">
         <span>OPEN MY LETTER 💌</span>
       </button>
     </div>
@@ -361,7 +1035,7 @@
     </div>
 
     <div class="mt-8">
-      <button id="btn-unlock-surprise" class="btn-glow-primary px-8 py-3.5 rounded-full text-white font-bold text-base tracking-wide uppercase inline-flex items-center gap-2 shadow-2xl">
+      <button id="btn-unlock-surprise" class="btn-glow-primary px-8 py-3.5 rounded-full font-bold text-base tracking-wide uppercase inline-flex items-center gap-2 shadow-2xl" style="background: linear-gradient(135deg, #ff4d6d, #b5179e) !important; color: white !important;">
         <span>UNLOCK YOUR SURPRISE ❤️</span>
       </button>
     </div>
